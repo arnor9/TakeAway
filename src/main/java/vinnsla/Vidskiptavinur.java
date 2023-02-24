@@ -6,8 +6,8 @@ import javafx.beans.property.StringProperty;
 public class Vidskiptavinur {
     private StringProperty nafn = new SimpleStringProperty();
 
-    public Vidskiptavinur() {
-
+    public Vidskiptavinur(StringProperty nafn) {
+        this.nafn = nafn;
     }
 
     public String getNafn() {
