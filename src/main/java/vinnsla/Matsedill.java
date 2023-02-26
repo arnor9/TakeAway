@@ -19,6 +19,7 @@ public class Matsedill {
         return veitingar;
     }
 
+
     public void setVeitingar(ObservableList<Veitingar> veitingar) {
         this.veitingar = veitingar;
     }

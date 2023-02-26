@@ -1,8 +1,8 @@
 package vidmot.takeaway;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -10,19 +10,16 @@ import java.io.IOException;
 public class TakeAwayApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TakeAwayApplication.class.getResource("pontun-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("TakeAway");
-        stage.setScene(scene);
-        PontunController c1 = fxmlLoader.getController();
-        stage.show();
+        //FXMLLoader fxmlLoader = new FXMLLoader(TakeAwayApplication.class.getResource("pontun-view.fxml"));
 
-        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("pontun.view-fxml"));
-        Scene scene2 = fxmlLoader2.load();
-        new Scene(fxmlLoader2.load(), 320, 240);
-        stage.setTitle("Innskráning");
-        stage.setScene(scene2);
-        PontunController c2 = fxmlLoader2.getController();
+        //Scene scene = new Scene(fxmlLoader.load());
+
+        var scene = new Scene(new Pane());
+
+        ViewSwitcher.setScene(scene);
+        ViewSwitcher.switchTo(View.MAIN);
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
         stage.show();
     }
 

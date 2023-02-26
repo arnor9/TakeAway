@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="vidmot.takeaway.PontunController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <AnchorPane prefHeight="479.0" prefWidth="489.0">
-      <children>
-         <Button layoutX="364.0" layoutY="8.0" mnemonicParsing="false" onAction="#fxInnskra" prefHeight="37.0" prefWidth="125.0" text="Innskrá" />
-      </children>
-   </AnchorPane>
-</VBox>
+<AnchorPane fx:id="fxHeildarverd" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vidmot.takeaway.PontunController">
+    <children>
+        <VBox layoutY="39.0" prefHeight="362.0" prefWidth="228.0">
+            <children>
+                <ListView fx:id="fxmsedill" prefHeight="366.0" prefWidth="228.0" />
+            </children>
+        </VBox>
+        <VBox layoutX="429.0" layoutY="73.0" prefHeight="200.0" prefWidth="157.0">
+            <children>
+                <ListView fx:id="fxkarfa" prefHeight="214.0" prefWidth="100.0" />
+            </children>
+        </VBox>
+        <Button fx:id="fxInnskraning" layoutX="507.0" layoutY="1.0" mnemonicParsing="false" onAction="#fxInnskraning" prefHeight="32.0" prefWidth="83.0" text="fxInnskraning" />
+        <Button fx:id="eyda" layoutX="432.0" layoutY="291.0" mnemonicParsing="false" onAction="#fxTakaUrKorfu" text="Eyða" />
+        <Button fx:id="baeta" layoutX="536.0" layoutY="291.0" mnemonicParsing="false" onAction="#fxSetjaIKorfu" text="Bæta" />
+        <Button layoutX="480.0" layoutY="401.0" mnemonicParsing="false" onAction="#fxGreida" prefHeight="26.0" prefWidth="112.0" text="Greiða" />
+        <Label fx:id="heildarVerdLabel" layoutX="432.0" layoutY="339.0" prefHeight="17.0" prefWidth="64.0" text="Label" />
+    </children>
+</AnchorPane>

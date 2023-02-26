@@ -1,36 +1,93 @@
 package vidmot.takeaway;
 
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import vinnsla.Karfa;
+import vinnsla.MatsedillView;
 import vinnsla.Veitingar;
 
 public class PontunController {
     @FXML
-    private Label welcomeText;
+    private Button fxInnskraning;
+
 
     @FXML
-    private Button fxInnskra;
+    private ListView<Veitingar> fxkarfa;
 
-    private PontunController c1;
-    private PontunController c2;
+    @FXML
+    private ListView<Veitingar> fxmsedill;
+
+    @FXML
+    private Button baeta;
+
+    @FXML
+    private Button eyda;
+
+
+    @FXML
+    private Label heildarVerdLabel;
+
     private Karfa karfa;
+    private int totalVerd = 0;
 
+    public void fxInnskra(ActionEvent actionEvent) {
 
-    public void fxInnskra(ActionEvent event, PontunController c2) {
-        String daemi;
-        daemi = (((Button) event.getSource()).getText());
     }
 
 
-    public void initialize() {
-        Karfa karfa = new Karfa();
-        heildarverd.textProperty().addListener((observable, Veitingar)) ->
-        {
-            heildarverd.setText(String.valueOf(Integer.parseInt(get.verd())));
+    public void fxSetjaIKorfu(ActionEvent event) {
+        //bæta við vöru þegar ýtt er á "bæta" takkann
+        ObservableList<Veitingar> voldVeiting = fxmsedill.getSelectionModel().getSelectedItems();
+        fxkarfa.getItems().addAll(voldVeiting);
+        //þurfum að uppfæra heildarverð
+        //þurfum að kalla á fallið hvert skipti
+        // int totalVerd = karfa.reiknaHeildarverd(fxkarfa);
+        //totalVerd += voldVeiting.get.getVerd().getValue();
+        heildarVerdLabel.setText(String.valueOf(totalVerd));
+    }
+
+
+    public void fxTakaUrKorfu() {
+        //þegar ytt er á "eyða" þá eyðist vara úr körfunni
+        Veitingar selectedVeiting = fxkarfa.getSelectionModel().getSelectedItem();
+        if (selectedVeiting != null) {
+            fxkarfa.getItems().remove(selectedVeiting);
+            //þurfum að uppfæra heildarverð
+            //þurfum að kalla á fallið hvert skipti
+            //int totalVerd = karfa.reiknaHeildarverd(fxkarfa);
+            totalVerd -= selectedVeiting.getVerd().getValue();
+            heildarVerdLabel.setText(String.valueOf(totalVerd));
         }
 
     }
+
+    public void fxInnskraning() {
+
+    }
+
+    public void fxGreida() {
+        ViewSwitcher.switchTo(View.ABOUT);
+    }
+
+    public void initialize() {
+        //notum bind til að tengja bæta takkann við körfuna (notum disableProperty þannig að hnappur sé óvirkur þegar
+        //engin vara er valin
+        baeta.disableProperty().bind(Bindings.isEmpty(fxmsedill.getSelectionModel().getSelectedItems()));
+        //bind til að tengja eyda og msedill
+        eyda.disableProperty().bind(Bindings.isEmpty(fxkarfa.getSelectionModel().getSelectedItems()));
+
+        //birta vörur inn í matsedill listview (vinstra megin i scene)
+        MatsedillView matsedillView = new MatsedillView();
+        ObservableList<Veitingar> veitingar = FXCollections.observableArrayList(matsedillView.getMatsedill().getVeitingar());
+        fxmsedill.setItems(veitingar);
+    }
 }
+
+
+
