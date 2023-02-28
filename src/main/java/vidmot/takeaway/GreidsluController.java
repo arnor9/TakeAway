@@ -4,11 +4,6 @@ import javafx.event.ActionEvent;
 
 
 public class GreidsluController {
-    private PontunController p;
-
-    public GreidsluController(PontunController p) {
-        this.p = p;
-    }
 
     public void onBack(ActionEvent actionEvent) {
         ViewSwitcher.switchTo(View.MAIN);
@@ -16,7 +11,8 @@ public class GreidsluController {
 
 
     public void onForward(ActionEvent actionEvent) {
-        p
+        //p.karfa.cleatfxkarfa.clear();
+        //  p.fxkarfa.getItems().clear();
         ViewSwitcher.switchTo(View.MAIN);
 
 

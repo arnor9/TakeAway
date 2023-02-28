@@ -23,8 +23,7 @@ public class Karfa extends Matsedill {
     //public ObservableList<Veitingar> clearfxkarfa() {
     //  veitingar.removeAll(veitingar);
     //return veitingar;
-
-    //}
+//}
 
 
     public static void main(String[] args) {

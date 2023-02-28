@@ -8,16 +8,15 @@ public class MatsedillView extends ListView<Veitingar> {
 
     public MatsedillView() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("matsedill-view.fxml"));
-        fxmlLoader.setRoot(this);// rótin á viðmótstrénu sett hér
-        fxmlLoader.setController(this); // controllerinn settur hér en ekki í .fxml skránni
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
 
-        matsedill = new Matsedill(); //local hlu
-        matsedill.setjaGogn(); // setja gogn i local hlut
-        setItems(matsedill.getVeitingar()); //tengja gögnin (þurfti bæta "<Veitingar>" við extends Listview) annars error
+        matsedill = new Matsedill();
+        matsedill.setjaGogn();
+        setItems(matsedill.getVeitingar());
 
     }
-
-    //AI
+    
     public Matsedill getMatsedill() {
         return matsedill;
     }
