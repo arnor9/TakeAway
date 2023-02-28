@@ -20,6 +20,13 @@ public class Karfa extends Matsedill {
         return heildarverd;
     }
 
+    //public ObservableList<Veitingar> clearfxkarfa() {
+    //  veitingar.removeAll(veitingar);
+    //return veitingar;
+
+    //}
+
+
     public static void main(String[] args) {
         Karfa karfa = new Karfa();
         karfa.setjaGogn();
@@ -29,4 +36,5 @@ public class Karfa extends Matsedill {
         System.out.println("Heildarverð total: " + karfa.getHeildarverd().getValue());
 
     }
+
 }

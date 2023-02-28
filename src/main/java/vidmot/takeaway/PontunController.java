@@ -19,7 +19,7 @@ public class PontunController {
     private Button fxGreida;
 
     @FXML
-    private ListView<Veitingar> fxkarfa;
+    ListView<Veitingar> fxkarfa;
 
     @FXML
     private ListView<Veitingar> fxmsedill;
@@ -35,7 +35,7 @@ public class PontunController {
     @FXML
     private Label heildarVerdLabel;
 
-    private Karfa karfa = new Karfa();
+    Karfa karfa = new Karfa();
 
 
     public void fxSetjaIKorfu(ActionEvent event) {
@@ -99,9 +99,7 @@ public class PontunController {
         return fxkarfa;
     }
 
-    public void clearfxkarfa() {
-        fxkarfa.getItems().clear();
-    }
+
 }
 
 

@@ -45,15 +45,6 @@ public class ViewSwitcher {
             e.printStackTrace();
         }
     }
-
-    public static Object lookup(View view) {
-        if (controllers.containsKey(view)) {
-            return controllers.get(view);
-        } else {
-            return null;
-        }
-    }
-
 }
 
 

@@ -17,10 +17,16 @@ public class VidskiptavinurController {
     // private Scene scene;
     // private Parent root;
     // private Label lesaVidskiptavin;
-    
+
 
     public void fxInnskra(ActionEvent actionEvent) {
         ViewSwitcher.switchTo(View.MAIN);
+        // fxmlLoader().setController(this);
+        //   DialogPane dialogPane = fxmlLoader.load();
+
+        // fxNafn.textProperty().bindBidirectional(v.nafnProperty());
+        // fxHeimilisfang.textProperty().bindBidirectional((v.heimilisfangProperty()));
+
         //  stejaVidskiptavin()
         // String username = fxNafn.getText();
 
@@ -34,10 +40,14 @@ public class VidskiptavinurController {
         //  stage.show();
     }
 
+
     //  public String stejaVidskiptavin(String username) {
     //    PontunController leikmenn = new PontunController();
     //  leikmenn.fxInnskradurNafn.setText(fxNafn.getText());
     //}
     //   }
+    public void fxHaetta(ActionEvent actionEvent) {
+        ViewSwitcher.switchTo(View.MAIN);
+    }
 
 }
