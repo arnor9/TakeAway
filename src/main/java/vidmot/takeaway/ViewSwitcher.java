@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class ViewSwitcher {
     private static Map<View, Parent> cache = new HashMap<>();
-
+    private static final Map<View, Object> controllers = new HashMap<>();
     private static Scene scene;
 
     public static void setScene(Scene scene) {
@@ -45,6 +45,16 @@ public class ViewSwitcher {
             e.printStackTrace();
         }
     }
+
+    public static Object lookup(View view) {
+        if (controllers.containsKey(view)) {
+            return controllers.get(view);
+        } else {
+            return null;
+        }
+    }
+
 }
+
 
 

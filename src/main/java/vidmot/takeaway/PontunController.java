@@ -30,13 +30,12 @@ public class PontunController {
     @FXML
     private Button eyda;
     @FXML
-    public Label fxInnskradurNafn;
+    private Label fxInnskradurNafn;
 
     @FXML
     private Label heildarVerdLabel;
 
-    private Karfa karfa;
-    private int totalVerd = 0;
+    private Karfa karfa = new Karfa();
 
 
     public void fxSetjaIKorfu(ActionEvent event) {
@@ -48,7 +47,7 @@ public class PontunController {
         // int totalVerd = karfa.reiknaHeildarverd(fxkarfa);
         //totalVerd += voldVeiting.get.getVerd().getValue();
         karfa.getHeildarverd().set(karfa.getHeildarverd().get() + voldVeiting.getVerd().get());
-        heildarVerdLabel.setText(karfa.getHeildarverd().get() + "");
+        heildarVerdLabel.setText(karfa.getHeildarverd().get() + "kr");
 
     }
 
@@ -61,8 +60,12 @@ public class PontunController {
             //þurfum að uppfæra heildarverð
             //þurfum að kalla á fallið hvert skipti
             //int totalVerd = karfa.reiknaHeildarverd(fxkarfa);
+            //karfa.getHeildarverd().set(karfa.getHeildarverd().get() - selectedVeiting.getVerd().get());
+            //heildarVerdLabel.setText(karfa.getHeildarverd().get() + "");
+            //int totalVerd = karfa.reiknaHeildarverd();
+            //heildarVerdLabel.setText(String.valueOf(totalVerd) + " kr");
             karfa.getHeildarverd().set(karfa.getHeildarverd().get() - selectedVeiting.getVerd().get());
-            heildarVerdLabel.setText(karfa.getHeildarverd().get() + "");
+            heildarVerdLabel.setText(karfa.getHeildarverd().get() + "kr");
         }
 
     }
@@ -92,8 +95,12 @@ public class PontunController {
         fxmsedill.setItems(veitingar);
     }
 
-    public ListView<Veitingar> getFxkarfa() {
+    public ListView<Veitingar> getKarfaListView() {
         return fxkarfa;
+    }
+
+    public void clearfxkarfa() {
+        fxkarfa.getItems().clear();
     }
 }
 

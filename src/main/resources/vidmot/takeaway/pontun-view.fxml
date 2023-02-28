@@ -22,7 +22,7 @@
         <Button fx:id="eyda" layoutX="432.0" layoutY="291.0" mnemonicParsing="false" onAction="#fxTakaUrKorfu" text="Eyða" />
         <Button fx:id="baeta" layoutX="536.0" layoutY="291.0" mnemonicParsing="false" onAction="#fxSetjaIKorfu" text="Bæta" />
         <Button layoutX="480.0" layoutY="401.0" mnemonicParsing="false" onAction="#fxGreida" prefHeight="26.0" prefWidth="112.0" text="Greiða" />
-        <Label fx:id="heildarVerdLabel" layoutX="432.0" layoutY="339.0" prefHeight="17.0" prefWidth="64.0" text="Label" />
+        <Label fx:id="heildarVerdLabel" layoutX="432.0" layoutY="339.0" prefHeight="17.0" prefWidth="64.0" text="0" />
       <Label fx:id="fxInnskradurNafn" layoutX="2.0" layoutY="1.0" prefHeight="26.0" prefWidth="83.0" />
     </children>
 </AnchorPane>

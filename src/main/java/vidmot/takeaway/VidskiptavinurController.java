@@ -17,7 +17,7 @@ public class VidskiptavinurController {
     // private Scene scene;
     // private Parent root;
     // private Label lesaVidskiptavin;
-
+    
 
     public void fxInnskra(ActionEvent actionEvent) {
         ViewSwitcher.switchTo(View.MAIN);
