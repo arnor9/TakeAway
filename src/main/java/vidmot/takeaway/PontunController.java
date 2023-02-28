@@ -15,7 +15,8 @@ import vinnsla.Veitingar;
 public class PontunController {
     @FXML
     private Button fxInnskraning;
-
+    @FXML
+    private Button fxGreida;
 
     @FXML
     private ListView<Veitingar> fxkarfa;
@@ -28,7 +29,8 @@ public class PontunController {
 
     @FXML
     private Button eyda;
-
+    @FXML
+    public Label fxInnskradurNafn;
 
     @FXML
     private Label heildarVerdLabel;
@@ -36,20 +38,18 @@ public class PontunController {
     private Karfa karfa;
     private int totalVerd = 0;
 
-    public void fxInnskra(ActionEvent actionEvent) {
-
-    }
-
 
     public void fxSetjaIKorfu(ActionEvent event) {
         //bæta við vöru þegar ýtt er á "bæta" takkann
-        ObservableList<Veitingar> voldVeiting = fxmsedill.getSelectionModel().getSelectedItems();
+        Veitingar voldVeiting = fxmsedill.getSelectionModel().getSelectedItem();
         fxkarfa.getItems().addAll(voldVeiting);
         //þurfum að uppfæra heildarverð
         //þurfum að kalla á fallið hvert skipti
         // int totalVerd = karfa.reiknaHeildarverd(fxkarfa);
         //totalVerd += voldVeiting.get.getVerd().getValue();
-        heildarVerdLabel.setText(String.valueOf(totalVerd));
+        karfa.getHeildarverd().set(karfa.getHeildarverd().get() + voldVeiting.getVerd().get());
+        heildarVerdLabel.setText(karfa.getHeildarverd().get() + "");
+
     }
 
 
@@ -61,14 +61,18 @@ public class PontunController {
             //þurfum að uppfæra heildarverð
             //þurfum að kalla á fallið hvert skipti
             //int totalVerd = karfa.reiknaHeildarverd(fxkarfa);
-            totalVerd -= selectedVeiting.getVerd().getValue();
-            heildarVerdLabel.setText(String.valueOf(totalVerd));
+            karfa.getHeildarverd().set(karfa.getHeildarverd().get() - selectedVeiting.getVerd().get());
+            heildarVerdLabel.setText(karfa.getHeildarverd().get() + "");
         }
 
     }
 
     public void fxInnskraning() {
+        ViewSwitcher.switchTo(View.LOGIN);
+    }
 
+    public void fxInnskradurNafn(String username) {
+        fxInnskradurNafn.setText(username);
     }
 
     public void fxGreida() {
@@ -86,6 +90,10 @@ public class PontunController {
         MatsedillView matsedillView = new MatsedillView();
         ObservableList<Veitingar> veitingar = FXCollections.observableArrayList(matsedillView.getMatsedill().getVeitingar());
         fxmsedill.setItems(veitingar);
+    }
+
+    public ListView<Veitingar> getFxkarfa() {
+        return fxkarfa;
     }
 }
 

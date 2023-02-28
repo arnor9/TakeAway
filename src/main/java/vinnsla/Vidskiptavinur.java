@@ -1,30 +1,24 @@
 package vinnsla;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 public class Vidskiptavinur {
-    private StringProperty nafn = new SimpleStringProperty();
-    private StringProperty kennitala = new SimpleStringProperty();
+    private String nafn;
+    private String heimilsfang;
+    private String nafnVidskiptavins = "";
+    private String heimilisfangVidskipavins = "";
 
-    public Vidskiptavinur(StringProperty nafn, StringProperty kennitala) {
-        this.nafn = nafn;
-        this.kennitala = kennitala;
+    Vidskiptavinur nyr = new Vidskiptavinur("Gunnar", "Gulaþing 17");
+
+
+    public Vidskiptavinur(String nafn, String heimilsfang) {
+        this.nafn = nafnVidskiptavins;
+        this.heimilsfang = heimilisfangVidskipavins;
     }
 
-    public StringProperty getKennitala() {
-        return kennitala;
+    public String getHeimilsfang() {
+        return heimilsfang;
     }
 
-    public StringProperty kennitalaProperty() {
-        return kennitala;
-    }
-
-    public StringProperty getNafn() {
-        return nafn;
-    }
-
-    public StringProperty nafnProperty() {
+    public String getNafn() {
         return nafn;
     }
 }

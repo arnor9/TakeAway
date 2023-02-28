@@ -31,6 +31,6 @@ public class Veitingar {
     }
 
     public String toString() {
-        return getHeiti() + "verð: " + getVerd();
+        return getHeiti() + "verð: " + getVerd().getValue();
     }
 }

@@ -18,7 +18,7 @@ public class TakeAwayApplication extends Application {
 
         ViewSwitcher.setScene(scene);
         ViewSwitcher.switchTo(View.MAIN);
-        stage.setTitle("Hello!");
+        stage.setTitle("TakeAway");
         stage.setScene(scene);
         stage.show();
     }
